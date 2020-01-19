@@ -1,68 +1,74 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Explore from '../views/Explore.vue'
-import Follow from '../views/Follow.vue'
-import Home from '../views/Home.vue'
-import Hot from '../views/Hot.vue'
-import Login from '../views/Login.vue'
 import Nav from '../views/Nav.vue'
-import QuestionWaiting from '../views/QuestionWaiting.vue'
-import Recommoned from '../views/Recommoned.vue'
+import Home from '../views/Home.vue'
+import Expore from '../views/Explore.vue'
 import Special from '../views/Special.vue'
+import RoundTable from '../views/RoundTable.vue'
+import Recommoned from '../views/Recommoned.vue'
+import Follow from '../views/Follow.vue'
+import Hot from '../views/Hot.vue'
+import QuestionWaiting from '../views/QuestionWaiting.vue'
+import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    component: Nav,
+	children:[{
+		path:'/',
+		redirect: 'home'
+	},
 	{
-		path: '/',
-		component: Nav,
-		children: [{
-				path: '/',
-				redirect: 'home'
+		path:'home',
+		component:() => import('../views/Home.vue'),
+		children:[
+			{
+				path:'/',
+				redirect:'recommoned'
 			},
 			{
-				path: 'home',
-				component: Home,
-				children: [{
-						path: '/',
-						redirect: 'recommoned'
-					},
-					{
-						path: 'recommoned',
-						component: Recommoned
-					},
-					{
-						path: 'follow',
-						component: Follow
-					},
-					{
-						path: 'hot',
-						component: Hot
-					}
-				]
+				path:'recommoned',
+				component:() => import('../views/Recommoned.vue')
 			},
 			{
-				path: 'explore',
-				component: Explore
+				path:'follow',
+				component:() => import('../views/Follow.vue')
 			},
 			{
-				path: 'special/all',
-				component: Special
-			},
-			{
-				path: 'question/waiting',
-				component: QuestionWaiting
+				path:'hot',
+				component:() => import('../views/Hot.vue')
 			}
 		]
 	},
 	{
-		path: '/login',
-		component: Login
+		path:'explore',  
+		component:() => import('../views/Explore.vue')
+	},
+	{
+		path:'special/all',
+		component:() => import('../views/Special.vue')
+	},
+	{
+		path:'roundTable/all',
+		component:() => import('../views/RoundTable.vue')
+	},
+	{
+		path:'question/waiting',
+		component:() => import('../views/QuestionWaiting.vue')
 	}
+	]
+  },
+  {
+  	path:'/login',
+  	component:Login
+  }
 ]
 
 const router = new VueRouter({
-	routes
+  routes
 })
 
 export default router

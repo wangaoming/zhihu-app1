@@ -40,7 +40,8 @@
 			<p>如，青岛啤酒，小时候虽然没有喝过，却是数着父亲的啤酒瓶长大的，那时青岛啤酒瓶，根据生产的时间不同，价格不同，年代新的2毛一个，年代老的5分一个；再如，童年时爱看的，
 			由海尔集团出品的动画片《海尔兄弟》，如今笔者不到3岁的儿子，已会哼唱。</p>
 		</div>	
-		<div class="btn1"><button class="FindExploreFollowButton">查看更多专题></button></div>
+		<router-link to="/special/all" class="l"><button class="FindExploreFollowButton">查看更多专题></button></router-link >
+		
 	</div>
 	
 	</div>
@@ -73,23 +74,14 @@
 		</div>
 	</div>
 	</div>
-	<div class="btn1"><button class="FindExploreFollowButton1">查看更多圆桌></button></div>
+	<router-link to="/roundTable/all" class="l"><button class="FindExploreFollowButton1">查看更多圆桌></button></router-link >
 	
 	
 	</div>
 	
 		
 </div>
-
-	
-	
-	
-	
-
-	
-	
-	
-				
+			
 </template>
 
 <script>
