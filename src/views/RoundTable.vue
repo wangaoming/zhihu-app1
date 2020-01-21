@@ -1,11 +1,17 @@
-  
 <template>
 	<div>
 		<div class="container">
 			<div class="row">
-				<div class="col-8">
-					<div class="row">
-				<div class="col-3 area" v-for="(item,index)  in roundTables" v-if="index>begin&&index<end" :key="index">
+				<div class="col-12 head flex flex-between">
+					<div>
+						<a class="yz">圆桌</a>
+						<a class="jb">举办圆桌</a>
+						</div>
+						<!-- <div class="line"></div> -->
+				</div>
+				<div class="row1">
+				<div class="col-3" v-for="(item,index)  in roundTables" v-if="index>begin&&index<end" :key="index">
+				<div class="area">
 				<div class="area-head">
 					<img :src="item.banner" alt="">
 					<p class="name">{{item.name}}</p>
@@ -13,10 +19,9 @@
 				<div class="area-body">
 					<p>{{item.visits_count}}人访问,{{item.include_count}}人参与</p>
 				</div>
-					</div>
-					 </div>
-					</div>
-					<div class="col-4" style="background-color: white;  height: 700px;"></div>
+				</div>
+				</div>
+				</div>
 			</div>
 			<button @click="show_all" class="flex center btn_gz">展开全部>>></button>
 		</div>
@@ -31,7 +36,7 @@ export default{
 		return{
 			roundTables:[],
 			begin:0,
-			end:10,
+			end:13,
 		};
 	},
 	created() {
@@ -50,42 +55,95 @@ export default{
 </script>
 
 <style  lang="scss" scoped>
-	.col-8{
-		flex: 0 0 83.3%;
-		img{
-			width: 100%;
-			height: 100%;
-		}
+	.container{
+		margin: 0vh auto;
+		width: 80%;
+		height: 100%;
 	}
-	.col-4{
-		flex: 0 0 16.6%;
+	
+	.head{
+		margin-bottom: 20px;	
+	}
+	.row{
+		width: 93%;
+		margin: auto;
+		margin-top: 10px;
+		background-color: white;
+		padding: 20px;
+	}
+	.yz{
+		font-weight: 600;
+		color: #1A1A1A;
+		font-size: 15px;
+		line-height: 20px;
+		margin-left: 90px;
+	}
+	.jb{
+		color: #0084FF;
+		font-weight: 600;
+		font-size: 14px;
+		line-height: 20px;
+		float: right;
+		margin-right: 50px;
+		cursor: pointer;
+		// vertical-align: top;
+		// list-style: none;
+		
+		
+	}
+	.row1{
+		margin: 0vh auto;
+	margin-left: 80px;
+	// margin-right: 250px;
+	display: flex;
+	flex-wrap:wrap;
+	
 	}
 	.col-3{
-		flex: 0 0 25%;
+		width: 250px;
+		img{
+			height: 190px;
+			width: 200px;
+			border-radius: 6px;
+			box-shadow: 2px black;
+			cursor: pointer;
+		}
 	}
 	.area{
-		margin-right: 20px;
-		margin-bottom: 20px;
-		width: 200px;
-		height: 200px;
-		box-shadow: 0 1px 3px 0 rgba(26,26,26,.1);
+		margin-bottom: 30px;
+		border-radius: 5px;
+		padding-right: 50px;
+		margin-top: 20px;
+		height: 240px;
+		
+		img{
+			border-radius: 5px;
+			width: 100%;
+		}
 	}
 	.area-head{
 		height: 80%;
+		
 		position: relative;
 	}
 	.area-body{
-		height: 20%;
+		// height: 20%;
 		background-color: white;
-		margin-top: 5px;
+		padding: 10px;
 		font-size: 14px;
-		width: 100%;
-		color: #778087;	
+		// width: 100%;
+		color: #d6d6d6;	
+		cursor: pointer;
 	}
 	.name{
 		position: absolute;
 		bottom: 5%;
 		left: 5%;
 		color: white;
+		
 	}
+.btn_gz{
+	margin-left: 200px;
+	cursor: pointer;
+}
 </style>

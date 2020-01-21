@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Nav from '../views/Nav.vue'
 import Home from '../views/Home.vue'
-import Expore from '../views/Explore.vue'
+import Expore1 from '../views/Explore1.vue'
 import Special from '../views/Special.vue'
 import RoundTable from '../views/RoundTable.vue'
 import Recommoned from '../views/Recommoned.vue'
@@ -10,6 +10,7 @@ import Follow from '../views/Follow.vue'
 import Hot from '../views/Hot.vue'
 import QuestionWaiting from '../views/QuestionWaiting.vue'
 import Login from '../views/Login.vue'
+import Favorite from'../views/Favorite.vue'
 
 Vue.use(VueRouter)
 
@@ -44,8 +45,8 @@ const routes = [
 		]
 	},
 	{
-		path:'explore',  
-		component:() => import('../views/Explore.vue')
+		path:'explore1',  
+		component:() => import('../views/Explore1.vue')
 	},
 	{
 		path:'special/all',
@@ -54,6 +55,10 @@ const routes = [
 	{
 		path:'roundTable/all',
 		component:() => import('../views/RoundTable.vue')
+	},
+	{
+		path:'favorite/all',
+		component:() => import('../views/Favorite.vue')
 	},
 	{
 		path:'question/waiting',
