@@ -100,6 +100,7 @@
 				<div class="row1">
 					<div class="card"  v-for="(item,index) in favourites" :key="index" >
 						<!-- 正题部分 -->
+						
 					<div>
 						<h2 style="margin-left: 20px;">{{item.title}}</h2>
 						<button class="btn_gz" style="margin-top: -50px;">关注收藏夹</button>
@@ -129,6 +130,38 @@
 			<button class="center" style=""><router-link to="/Favorite/all" class="l">查看更多收藏夹></router-link></button>
 			
 		</div>
+		<!-- 专题部分 -->
+		<div>
+			<div class="banner">
+			<i class="inconfont"><img style="height: 40px;width: 40px;" src="../assets/image/copy.png"/></i>
+			<h2>专栏</h2>	
+			</div>
+			<div class="footer_row" align="center">
+				
+			<div class="footer" v-for="(item,index) in columns" :key="index" >
+				<!-- 正题部分 -->
+				<div class="img_head" style="width: 102px;height:102;border-radius: 50%,50%;margin-top: 20px;">
+					<img  style="width: 102px;height:102px;border-radius: 50%;" :src="item.imageUrl" />
+				</div>
+				<div>
+					<strong style="font-size: 15px;">{{item.title}}</strong>
+					<p style="font-size: 10px;color: #d6d6d6;">{{item.followers}}人关注，{{item.articlesCount}}文章</p>
+				</div>
+				<div style="margin-top:20px ;">
+					<p style="font-size: 10px;">{{item.description}}</p>
+				</div>
+				<div align="center" style="margin-top: 120px;margin-right: 40px;"><a :href="item.url" style="text-decoration: none;" target="_blank" >
+				<button class="btn_gz" style="margin-top: -50px;">进入专栏</button></a>
+				</div>
+				
+			</div>
+			
+			
+		</div>
+		
+		<button class="center" style=""><router-link to="/Column/all" class="l">查看更多专栏></router-link></button>
+		</div>
+			
 	</div>
 </template>
 
@@ -140,6 +173,7 @@ export default{
 			specials:[],
 			roundTables:[],
 			favourites:[],
+			columns:[],
 		};
 	},
 	created() {
@@ -158,11 +192,40 @@ export default{
 			console.log(res);
 			this.favourites = res.data.data;
 		});
+		// 专栏
+		this.axios.get('http://localhost:8080/api/column/').then(res =>{
+			console.log(res);
+			this.columns = res.data.data;
+		});
 	}
 };
 </script>
 
 <style  lang="scss" scoped>
+
+	.footer{
+	width: 309px;
+	height: 350px;
+	background-color: rgb(255,255,255);
+	border: 2px solid #d6d6d6;
+	box-shadow: 0 1px 3px 0 rgba(26,26,26,.1);
+	border-radius: 5px;
+	margin-bottom: 30px;
+		margin: 0vh auto 0;
+		margin-top: 20px;
+	box-shadow: 2px 5px 5px #aaa;
+	margin-left: 120px;
+	}
+	.footer_row{
+	    // margin-right: 200px;
+		margin-right: 170px;
+		display: flex;
+		// flex-flow: row wrap;
+     
+	}
+	.img_head{
+		
+	}
 	.center{
 		margin-right: 400px;
 	}
@@ -190,6 +253,7 @@ export default{
 	flex-wrap: wrap ;
 	 // align-content: flex-start;
 	}
+	
 	.left{
 		width: 60%;
 		

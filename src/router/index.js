@@ -11,7 +11,7 @@ import Hot from '../views/Hot.vue'
 import QuestionWaiting from '../views/QuestionWaiting.vue'
 import Login from '../views/Login.vue'
 import Favorite from'../views/Favorite.vue'
-
+import Column from '../views/Column.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -59,6 +59,10 @@ const routes = [
 	{
 		path:'favorite/all',
 		component:() => import('../views/Favorite.vue')
+	},
+	{
+		path:'column/all',
+		component:() => import('../views/Column.vue')
 	},
 	{
 		path:'question/waiting',
